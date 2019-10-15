@@ -1,0 +1,49 @@
+Arguments: 
+  /Users/hong/.nvm/versions/node/v10.15.3/bin/node /usr/local/bin/yarn add webpack-cli global
+
+PATH: 
+  /Users/hong/.nvm/versions/node/v10.15.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.15.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/usr/local/share/Library/Caches/Yarn/v4/npm-global-prefix-1.0.2-dbf743c6c14992593c655568cb66ed32c0122ebe/node_modules/global-prefix/index.js' -> '/Users/hong/Desktop/hong-utils/node_modules/resolve-dir/node_modules/global-prefix/index.js'
+
+npm manifest: 
+  {
+    "name": "hong-utils",
+    "version": "1.0.9",
+    "description": "this is daily utils",
+    "main": "index.js",
+    "scripts": {
+      "push": "rimraf index.js && webpack && npm publish",
+      "test": "rimraf index.js && webpack && node test.js"
+    },
+    "author": "Hong",
+    "license": "ISC",
+    "devDependencies": {
+      "@babel/cli": "^7.6.2",
+      "@babel/core": "^7.6.2",
+      "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+      "@babel/plugin-transform-property-mutators": "^7.2.0",
+      "@babel/plugin-transform-runtime": "^7.6.2",
+      "@babel/plugin-transform-strict-mode": "^7.2.0",
+      "@babel/preset-env": "^7.6.2",
+      "@babel/preset-es2015": "^7.0.0-beta.53",
+      "babel-loader": "^8.0.6",
+      "webpack-cli": "^3.3.9"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

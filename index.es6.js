@@ -1,6 +1,11 @@
 class Utils {
-  
-  // 时间戳转日期格式
+  /* 
+  时间戳转日期格式
+  @timestamp(Number): 时间戳
+  @type(Null): 类型
+    date: YY-MM-DD 字符串
+    null: 年月日时分秒对象
+  */
   formatDate(timestamp = +new Date(),type = null) {
     let date = new Date(Number(timestamp)),
         year = date.getFullYear(),
@@ -42,7 +47,13 @@ class Utils {
     }
   }
 
-  // 两个时间戳的差转日期格式
+  /* 
+  两个时间戳的差转日期格式
+  @startTime(Number): 开始时间戳
+  @endTime(Number): 结束时间戳
+  @type(Null): 类型
+    null: 年月日时分秒对象
+  */
   diffTime(startTime = +new Date(), endTime = +new Date(), type = null) {
     if (startTime >= endTime) {
       return {
@@ -128,6 +139,33 @@ class Utils {
         return word
     })
     return html
+  }
+
+  /* 
+    16进制转rgba
+    @pageBg(String): 16进制字符串
+    @opacity(String || Number): 透明度
+  */
+  transformationRGB(_pageBg,_opacity) {
+    var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+    var sColor = _pageBg.toLowerCase();
+    if (sColor && reg.test(sColor)) {
+      if (sColor.length === 4) {
+        var sColorNew = "#";
+        for (var i = 1; i < 4; i += 1) {
+          sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
+        }
+        sColor = sColorNew;
+      }
+      //处理六位的颜色
+      var sColorChange = [];
+      for (var i = 1; i < 7; i += 2) {
+        sColorChange.push(parseInt("0x" + sColor.slice(i, i + 2)));
+      }
+      return "rgba(" + sColorChange.join(",") + ',' + (_opacity / 100) + ")";
+    } else {
+      return sColor;
+    }
   }
 }
 

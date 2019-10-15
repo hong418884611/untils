@@ -1,20 +1,25 @@
 {
   "name": "hong-utils",
-  "version": "1.0.9",
+  "version": "1.1.2",
   "description": "this is daily utils",
   "main": "index.js",
   "scripts": {
-    "push": "rimraf index.js && webpack && npm publish"
+    "push": "rimraf index.js && npx babel index.es6.js --out-file index.js && npm publish",
+    "test": "rimraf index.js && webpack && node test.js"
   },
   "author": "Hong",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-property-mutators": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/plugin-transform-strict-mode": "^7.2.0",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-es2015": "^7.0.0-beta.53",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
   }
 }
