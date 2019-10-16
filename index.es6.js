@@ -167,6 +167,60 @@ class Utils {
       return sColor;
     }
   }
+
+  /* 
+    把一个数组拆分成由x个数组组成的数组
+    @arr(Array): 需要拆分的数组
+    @len(Number): 子数组的个数
+  */
+  splitArray(arr = [], len = 1) {
+    var a_len = arr.length;
+    var result = [];
+    for(var i = 0; i < a_len; i += len) {
+      result.push(arr.slice(i, i + len));
+    }
+    return result;
+  }
+
+  /* 
+    返回某个范围的随机数
+    @star(Number): 最小值
+    @end(Number): 最大值
+  */
+  creatNum(star = 0,end = 10){
+    return Math.random() * ( end - star ) + star
+  }
+
+  /* 
+    获取url参数
+    @str(String): 需要获取参数网络地址
+  */
+  getUrlParams(str) {
+    var reg_url = /^[^\?]+\?([\w\W]+)$/,
+      reg_para = /([^&=]+)=([\w\W]*?)(&|$|#)/g,
+      arr_url = reg_url.exec(str),
+      ret = {};
+    if(arr_url && arr_url[1]) {
+      var str_para = arr_url[1],
+        result;
+      while((result = reg_para.exec(str_para)) != null) {
+        ret[result[1]] = result[2];
+      }
+    }
+    return ret;
+  }
+
+  /* 
+    获取千分符数字
+    @num(Number): 需要获取千分符的数字
+  */
+  formatNumber(num) { 
+    if (isNaN(num)) { 
+      throw new TypeError("num is not a number"); 
+    } 
+    
+    return ("" + num).replace(/(\d{1,3})(?=(\d{3})+(?:$|\.))/g, "$1,");  
+  } 
 }
 
 module.exports = new Utils()
