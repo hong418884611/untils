@@ -4,7 +4,7 @@
   "description": "this is daily utils",
   "main": "index.js",
   "scripts": {
-    "push": "rimraf index.js && npx babel index.es6.js --out-file index.js && npm publish",
+    "push": "rimraf index.js && npx babel index.es6.js --out-file index.js && npm publish && git push -f",
     "test": "rimraf index.js && webpack && node test.js"
   },
   "author": "Hong",
